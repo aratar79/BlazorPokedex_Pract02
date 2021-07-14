@@ -21,10 +21,11 @@ namespace BlazorPokedex.Services
             var result = new List<Pokemon>();
 
             var request = JsonConvert.DeserializeObject<ResultObject>(await _httpClient.GetStringAsync("pokemon?limit=24&offset=24"));
-            foreach (var pok in request)
-            {
+            
+            foreach (var poke in request.Pokemons) 
+                result.Add(await GetPokemon(poke.Name));
 
-            }
+            return result;
         }
 
         public async Task<Pokemon> GetPokemon(string name) =>
