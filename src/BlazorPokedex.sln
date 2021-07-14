@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorPokedex.Client", "Bla
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorPokedex.Models", "BlazorPokedex.Models\BlazorPokedex.Models.csproj", "{2E805627-ED7A-49C5-B1D9-3CBA5B759817}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorPokedex.Services", "BlazorPokedex.Services\BlazorPokedex.Services.csproj", "{9D9C6C10-8141-4423-B81A-30B974BBFF38}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorPokedex.Services", "BlazorPokedex.Services\BlazorPokedex.Services.csproj", "{9D9C6C10-8141-4423-B81A-30B974BBFF38}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
