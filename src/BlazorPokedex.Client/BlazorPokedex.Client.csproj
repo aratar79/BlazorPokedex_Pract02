@@ -10,4 +10,9 @@
     <PackageReference Include="System.Net.Http.Json" Version="5.0.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\BlazorPokedex.Models\BlazorPokedex.Models.csproj" />
+    <ProjectReference Include="..\BlazorPokedex.Services\BlazorPokedex.Services.csproj" />
+  </ItemGroup>
+
 </Project>
