@@ -11,5 +11,7 @@ namespace BlazorPokedex.Models
     {
         [JsonProperty("results")]
         public IEnumerable<Pokemon> Pokemons { get; set; }
+        [JsonProperty("count")]
+        public int Count { get; set; }
     }
 }

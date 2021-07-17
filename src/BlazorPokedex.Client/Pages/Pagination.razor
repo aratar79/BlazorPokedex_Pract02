@@ -1,0 +1,54 @@
+﻿<nav>
+    <ul class="pagination justofy-content-center">
+        @foreach (var item in _paginationButtons)
+        {
+            <li @onclick="()=>OnSelectedPage(item)" style="cursor:pointer" class="page-item
+            @(item.Enabled ? null : "disable")
+            @(item.Active ? "active" : null)">
+                <span class="page-link" href="#">@item.Text</span>
+            </li>
+        }
+    </ul>
+</nav>
+
+
+@code {
+    private List<PaginationButton> _paginationButtons;
+
+    [Parameter]
+    public PaginationMetaData MetaDada { get; set; }
+
+    [Parameter]
+    public EventCallback<int> SelectedPage { get; set; }
+
+    [Parameter]
+    public int Spread { get; set; }
+
+    protected override void OnParametersSet()
+    {
+        CreatePaginationButtons();
+    }
+
+    private void CreatePaginationButtons()
+    {
+        _paginationButtons = new List<PaginationButton>();
+        _paginationButtons.Add(new PaginationButton(MetaDada.CurrentPage - 1, MetaDada.HasPrevious, "Previus"));
+
+        for (int i = 1; i < MetaDada.TotalPages; i++)
+        {
+            if (i >= MetaDada.CurrentPage - Spread && i <= MetaDada.CurrentPage + Spread)
+                _paginationButtons.Add(new PaginationButton(i, true, i.ToString()) { Active = MetaDada.CurrentPage == i });
+
+        }
+        _paginationButtons.Add(new PaginationButton(MetaDada.CurrentPage + 1, MetaDada.HasNext, "Next"));
+    }
+
+    private async Task OnSelectedPage(PaginationButton button)
+    {
+        if (button.Page == MetaDada.CurrentPage || !button.Enabled)
+            return;
+
+        MetaDada.CurrentPage = button.Page;
+        await SelectedPage.InvokeAsync(button.Page);
+    }
+}

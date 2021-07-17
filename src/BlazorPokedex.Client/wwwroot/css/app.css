@@ -150,21 +150,25 @@ a, .btn-link {
 }
 
 .pokeCard {
-    margin:5px;
-    width:15%;
-    text-align:center;
+    margin: 5px;
+    width: 15%;
+    text-align: center;
 }
 
 .row-align {
-    text-align:center;
+    text-align: center;
 }
 
 .moreinfo {
-    padding-bottom:10px;
+    padding-bottom: 10px;
 }
 
 .pokeCard {
-    margin:5px;
-    width:15%;
-    text-align:center;
+    margin: 5px;
+    width: 15%;
+    text-align: center;
+}
+
+.row-aling {
+    text-align: center;
 }
