@@ -1,5 +1,5 @@
 ﻿@inject IPokeApiClient PokeApiClient
-@page "/pokeditails/{name}"
+@page "/pokedetails/{name}"
 
 @if (Pokemon == null)
 {
@@ -10,8 +10,8 @@ else
     <div class="row row-aling">
         <div class="col-sm-6">
             <div class="mt-2">
-                <h1>@Pokemon.Name.Substring(0,1).ToUpper()
-                    @Pokemon.Name.Substring(1,Pokemon.Name.Length - 1)
+                <h1>
+                    @Pokemon.Name.Substring(0, 1).ToUpper()@Pokemon.Name.Substring(1, Pokemon.Name.Length - 1)
                 </h1>
                 @foreach (var poke in Pokemon.Types)
                 {
@@ -20,18 +20,18 @@ else
                     </span>
                 }
             </div>
-            <ul class="list-group list-group-flush mt-4">
-                <li class="list-group list-group-flush bg-transparent">
-                    ID #<b>@Pokemon.Id</b>
+            <ul class="list-group list-group-flush mt-4" style="width:20rem;">
+                <li class="list-group-item bg-transparent">
+                    ID #<b class="float-end">@Pokemon.Id</b>
                 </li>
-                <li class="list-group list-group-flush bg-transparent">
-                    Experience <b>@Pokemon.Experience</b>
+                <li class="list-group-item bg-transparent">
+                    Experience <b class="float-end">@Pokemon.Experience</b>
                 </li>
-                <li class="list-group list-group-flush bg-transparent">
-                    Weight <b>@Pokemon.Weight</b>
+                <li class="list-group-item bg-transparent">
+                    Weight <b class="float-end">@Pokemon.Weight</b>
                 </li>
-                <li class="list-group list-group-flush bg-transparent">
-                    Height <b>@Pokemon.Height</b>
+                <li class="list-group-item bg-transparent">
+                    Height <b class="float-end">@Pokemon.Height</b>
                 </li>
             </ul>
         </div>
