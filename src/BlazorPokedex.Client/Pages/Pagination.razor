@@ -1,10 +1,8 @@
 ﻿<nav>
-    <ul class="pagination justofy-content-center">
+    <ul class="pagination justify-content-center">
         @foreach (var item in _paginationButtons)
         {
-            <li @onclick="()=>OnSelectedPage(item)" style="cursor:pointer" class="page-item
-            @(item.Enabled ? null : "disable")
-            @(item.Active ? "active" : null)">
+            <li @onclick="()=>OnSelectedPage(item)" style="cursor:pointer" class="page-item @(item.Enabled ? null : "disabled") @(item.Active ? "active" : null)">
                 <span class="page-link" href="#">@item.Text</span>
             </li>
         }
@@ -31,6 +29,7 @@
 
     private void CreatePaginationButtons()
     {
+        
         _paginationButtons = new List<PaginationButton>();
         _paginationButtons.Add(new PaginationButton(MetaDada.CurrentPage - 1, MetaDada.HasPrevious, "Previus"));
 

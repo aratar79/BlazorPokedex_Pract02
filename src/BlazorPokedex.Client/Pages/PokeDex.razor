@@ -2,7 +2,7 @@
 
 @inject IPokeApiClient PokeApiClient
 
-<h3>PokeDex</h3>
+<h3 style="text-align: center;">PokeDex</h3>
 
 <div>
     <div class="row">
@@ -10,7 +10,7 @@
             <Pagination MetaDada="paginationMetadata" Spread="5" SelectedPage="SelectedPage"></Pagination>
         </div>
     </div>
-    <PokemonGrid Pokemons="Pokemons" NumberOfRows="5"></PokemonGrid>
+    <PokemonGrid Pokemons="Pokemons" NumberOfRows="10"></PokemonGrid>
 </div>
 
 @code {
@@ -24,6 +24,8 @@
     {
         var result = await PokeApiClient.GetAllPokemons(paginationParameters);
         var pokemons = new List<Pokemon>();
+
+        paginationMetadata.CurrentPage = 1;
 
         foreach (var poke in result.Pokemons)
             pokemons.Add(await PokeApiClient.GetPokemon(poke.Name));
